@@ -1,0 +1,56 @@
+{% load static %}
+<nav class="side_bar_content">
+    <div class="side_bar_header">
+        <p>{{ user.nickname }}님 안녕하세요</p>
+        <img src="{% static 'assets/back.png' %}" class="testback"/>
+    </div>
+    <div class="side_bar_FolderBox">
+        <div id="folderBox" class="FolderInput">
+            <img src="{% static 'assets/folder.svg' %}"/>
+        </div>
+        <div id="folderBox">
+            <img src="{% static 'assets/secure.png' %}"/>
+        </div>    
+    </div>
+        <form class="folder_form sidebar_visible" action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <input class="folder_title" placeholder="폴더 이름을 넣어주세요" required name="title" type="text"/>
+            <input name="user" type="hidden" value="{{user.id}}"/>
+        </form>
+    <div class="side_bar_content">
+        {% if  folderList %}
+        <ul>
+            {% for folder in  folderList%}
+                {% if  user == folder.user%}
+                <a href="{% url 'folder_view' folderId=folder.id %}">
+                    <li>
+                        <span>{{folder.title}}</span>
+                        <div class="folder_function">
+                            <img id="{{folder.id}}" class="folder_edit" src="{% static 'assets/edit.svg' %}"/>
+                            <img id="{{folder.id}}" class="folder_delete" src="{% static 'assets/delete.svg' %}"/>
+                        </div>
+                    </li>
+                </a>
+                {% endif %}
+            {% endfor %}
+        <ul>
+        {% else %}
+            <p>폴더를 만들어주세요 😀</p>    
+        {% endif %}
+        
+    </div>
+    <footer class="side_bar_footer">
+        <a href="{% url 'logout' %}">
+            <div class="footer_box">
+                {% if  user.is_authenticated %}
+                        <img src="{% static 'assets/logout.png' %}" alt="exit"/>
+                {% endif %}
+                <span>로 그 아 웃</span>
+            </div>
+        </a>
+        <div class="footer_box">
+            ⓒ 2024.yonghae. All rights reserve d.
+        </div>
+    </footer>
+</nav>
+

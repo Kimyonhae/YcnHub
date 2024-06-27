@@ -1,0 +1,35 @@
+
+body {
+    background-color: #1f1f1f;
+}
+
+div.errorBox { 
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,  -50%);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.errorBox div {
+    text-align: center;
+}
+
+div.errorBox div  p{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+div.errorBox button {
+    width: 200px;
+    height: 50px;
+    background-color: #FEE715;
+    border-radius: 10px;
+    cursor: pointer;
+}

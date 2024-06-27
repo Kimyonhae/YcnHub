@@ -1,0 +1,110 @@
+/*------------------h1 title------------------*/
+
+h2.register_title {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ccc;
+}
+
+.register_title span {
+    color: whitesmoke;
+}
+/*------------------/h1 title------------------*/
+
+form.register_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.register_input_box { /* input table */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+div.register_imgBox {
+    width: 48px;
+    height: 48px;
+    background-color: #363B41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+div.register_imgBox img { /* input table 안에 있는 img 또는 svg*/
+    width: 32px;
+    height: 32px;
+}
+
+div.register_input_box input { /* input */
+    width: 100%;
+    height: 48px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #3B4148;
+    color: white;
+    transition: 0.25s ease-in-out;
+    padding-left: 8px;
+}
+
+div.register_input_box input:hover { /* input hover 상태일때*/
+    background-color: rgba(91, 100, 112, 0.5);
+}
+
+div.register_input_box input:focus { /* input hover 상태일때*/
+    background-color: rgba(91, 100, 112, 0.5);
+}
+
+
+.register_helpbox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/*---------------------------------*/
+
+.register_helpbox #forget_id a {
+    transition: 0.3s ease-in-out;
+}
+
+.register_helpbox #move_register a {
+    transition: 0.3s ease-in-out;
+}
+
+.register_helpbox #forget_id a:hover { /* helpBox 의 hover 작동시 애니메이션*/
+    color: white;
+}
+
+.register_helpbox #move_register a:hover {
+    color: white;
+}
+
+/*---------------------------------*/
+
+.register_submit {
+    color: white;
+    width: 100%;
+    height: 50px;
+    background-color:#EA4C88;
+    transition: 0.3s ease-in-out;
+}
+
+.register_submit:hover { /* 로그인 버튼의 hover 색상*/
+    opacity: 0.8;
+}

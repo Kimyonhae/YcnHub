@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>YcnHub | 로그인</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    </head>
+    <body>
+
+        <form class="login_form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {% include "base/error.html" %}
+
+            <h2 class="login_title">YcnHub / <span>로그인</span> </h2>
+            <div class="login_input_box">
+                <div class="login_imgBox">
+                    <img src="{% static 'assets/user.png' %}" alt="ID"/>
+                </div>
+                <input class="login_input" name="username" type="text" placeholder="아이디" autocomplete="current-password"/>
+            </div>
+            <div class="login_input_box">
+                <div class="login_imgBox">
+                    <img src="{% static 'assets/lock.svg' %}" alt="pwd"/>
+                </div class="login_imgBox">
+                <input class="login_input" name="password" type="password" placeholder="비밀번호" autocomplete="current-password"/>
+            </div>
+            <div class=login_helpbox>
+                <span id="forget_id"><a href="/password_reset">계정을 잃어버렸나요?</a></span>
+                <span id="move_register"><a href="/register">회원가입</a></span>
+            </div>
+            <input class="login_submit" type="submit" value="로 그 인"/>
+        </form>
+    </body>
+</html>

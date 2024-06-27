@@ -1,0 +1,66 @@
+{% load static %}
+<div class="storage_content">
+    {% if selectedFolder %}
+    <form
+      class="fileUpload_form"
+      method="POST"
+      action="{% url 'file_post' folderId=selectedFolder %}"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <label id="file_label" for="file_upload">
+        <div class="upload_button">파일 업로드</div>
+      </label>
+      <input required type="file" name="file" id="file_upload" />
+    </form>
+    <div class="storage_filter">
+      <span>사용중인 공간 : {{usingVol}}</span>
+      <div class="filter_box">
+        <img src="{% static 'assets/filter.png' %}" alt="img" />
+        <span>정렬</span>
+      </div>
+    </div>
+    <div class="file_content">
+        {% for file in files %}
+            <a href="{% url 'file_view' folderId=selectedFolder fileId=file.id %}">
+              <div class="file_container">
+                  <img src="{% static 'assets/file.svg' %}" alt="파일"/>
+                  <span>{{file.name}}</span>
+              </div>
+            </a>
+        {% endfor %} 
+    </div>
+    {% if selectedFile%}
+            <!--  파일이 선택된 경우의 Front display-->
+            <div class="dark_panel">
+              <div class="selectedFile_Box">
+                  <h4>{{selectedFile.name}}</h4>
+                  <div class="function_box" folderId="{{selectedFolder}}" fileId="{{selectedFile.id}}">
+                      <a class="download_btn" href="{% url 'file_download' folderId=selectedFolder fileId=selectedFile.id %}">다운로드</a>
+                      <button class="delete_btn">삭제</button>
+                  </div>
+              </div>
+            </div>
+    {% endif %}
+    <script>
+      document.getElementById('file_upload').addEventListener('change', function() {
+        this.form.submit();
+      });
+    </script>
+    {% else %}
+    <h3>YcnHub</h3>
+    <p>
+      YcnHub는 NAS와 같이 로컬 저장소를 사용 할 수 있는 서비스입니다. 가정에서
+      사용하기 위한 클라우드와 NAS 서비스로 로컬네트워크에 연결되어 파일 공유,
+      백업, 데이터 스토리지 등의 기능을 제공합니다.
+    </p>
+    <h2>목적</h2>
+    <p>
+      클라우드를 쓰면 더 간단하게 데이터 스토리지 기능을 사용 할 수 있고 NAS에
+      최적화된 운영체제를 사용하면 이러한 서비스를 만들 필요가 없지만 클라우드를
+      사용하기엔 비용적으로 부담이 되고 시놀로지 NAS는 비용 부담 그리고
+      개인적으로 신뢰하지 못해서 스스로 만들어볼 생각을 했습니다.
+    </p>
+    {% endif %}
+  </div>
+</div>
