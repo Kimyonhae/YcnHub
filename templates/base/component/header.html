@@ -1,0 +1,15 @@
+{% load static %}
+<header id="headerContent" class="header_content custom_Flex">
+    <div class="header_tap">
+        <img id="side_tap_bar" onclick="openMenuBar()" src="{% static 'assets/dark-menu.svg' %}" alt="menu">
+    </div>
+    <button>
+        {% if user.is_authenticated %}
+        {% else %}
+            {{ user.username }} <a href="{% url 'login' %}">로그인</a>
+        {% endif %}
+    </button>
+    <div class="header_title custom_Flex">
+        <span>YcnHub / Main</span>
+    </div>
+</header>

@@ -1,0 +1,58 @@
+{% load static %}
+<nav class="side_bar_content" id="sideBar">
+    <div class="side_bar_header">
+        <p>{{user}} Love binds us</p>
+        <img src="{% static 'assets/back.png' %}" onClick="closeMenuBar()" id='backArrow' class="backArrow"/>
+    </div>
+    <div class="side_bar_FolderBox">
+        <div id="folderBox" class="FolderInput">
+            <img onClick="showFolderInput()" src="{% static 'assets/folder.svg' %}"/>
+        </div>
+        <div id="folderBox">
+            <img src="{% static 'assets/secure.png' %}"/>
+        </div>    
+    </div>
+        <form  class="folder_form" action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <input class="folder_title" placeholder="폴더를 생성해보세요"  name="title" type="text" required/>
+        </form>
+    <div class="side_bar_content">
+        {% if  folderList %}
+        <ul>
+            {% for folder in  folderList%}
+                <a href="/{{folder}}">
+                    <li>
+                        <span>{{folder}}</span>
+                        <div class="folder_function">
+                            <img folderName="{{folder}}" class="folder_edit" src="{% static 'assets/edit.svg' %}"/>
+                            <img folderName="{{folder}}" class="folder_delete" src="{% static 'assets/delete.svg' %}"/>
+                        </div>
+                    </li>
+                </a>
+            {% endfor %}
+        <ul>
+        {% else %}
+            <div>
+                <p>
+                    폴더를 만들어주세요</br>
+                <p>
+                <i>😀</i>
+            </div>    
+        {% endif %}
+        
+    </div>
+    <footer class="side_bar_footer">
+        <a href="{% url 'logout' %}">
+            <div class="footer_box">
+                {% if  user.is_authenticated %}
+                        <img src="{% static 'assets/logout.png' %}" alt="exit"/>
+                {% endif %}
+                <span>로 그 아 웃</span>
+            </div>
+        </a>
+        <div class="footer_box">
+            ⓒ 2024.yonghae. All rights reserve d.
+        </div>
+    </footer>
+</nav>
+

@@ -1,0 +1,45 @@
+/* error.css */
+body {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.errorBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.errorBox img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.errorBox p {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.errorBox button {
+    width: 200px;
+    background-color: #ffffff;
+    color: #474747;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.errorBox button:hover {
+    background-color: #dddddd;
+}

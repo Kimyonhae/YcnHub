@@ -1,0 +1,260 @@
+/*----------------main-content---------------*/
+
+.main_container { /* body 다음 요소*/
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    position: relative;
+}
+
+.main_content{ /* header 와 main_content 태그의 부모 요소 */
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: 100%;
+}
+
+/*----------------sideBar content---------------*/
+
+
+
+nav.side_bar_content { /* Side Bar 실질적인 Content */
+    width: 300px;
+    height: 100vh; /* viewport의 전체 높이를 차지 */
+    border-right: 2px solid #474747;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: -300px;
+    flex-direction: column;
+    z-index: 100;
+    transition: 0.5s;
+}
+nav.side_bar_content a {
+    color: #fff;
+
+}
+div.side_bar_header { /* Side Bar header 부분 */
+    height: 50px;
+    border-bottom: 2px solid #474747;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.side_bar_header p {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+}
+
+div.side_bar_header img {
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+}
+
+div.side_bar_FolderBox { /* Side Bar 박스*/
+    height: 100px;
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #474747;
+}
+
+div.side_bar_FolderBox #folderBox { /* Side Bar 박스*/
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px 1px #1f1f1f
+    ;
+}
+
+/* visible hidden CSS */
+
+form.folder_form {
+    margin: 10px 20px 0 20px;
+    height: 70px;
+    border-radius: 8px;
+    border: 2px solid #EA4C88;
+}
+
+input.folder_title { /* inupt */
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    padding-left: 5px;
+    color: white;
+}
+
+/* visible hidden CSS */
+
+div.side_bar_content { /* list 목록 부분 */
+    width: 300px;
+    padding: 20px;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: gray #1f1f1f;
+}
+
+div.side_bar_content li { 
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom:1.5px solid #434343;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 0 5px;
+    transition: 0.2s ease-in-out;
+}
+
+div.folder_function img { /* delete and edit function img CSS  */
+    margin: 0 3px;
+    padding: 2px;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+div.folder_function img:hover {
+    background-color: #777;
+}
+
+/*--------------생성되는 Input의 CSS *-------------- */
+
+.createdInput {
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    width: 250px;
+    height: inherit;
+}
+
+/*--------------생성되는 Input의 CSS *-------------- */
+
+
+
+div.side_bar_content p { /* FolderModel 없을 경우 */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    font-weight: 700;
+    font-size: 16px;
+    font-style: oblique;
+}
+
+div.side_bar_content li:hover {
+    background-color: #434343;
+}
+
+footer.side_bar_footer { /* 계정 UI 보이는 부분 */
+    border-top: 2px solid #474747;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.footer_box { /* footer 내부 Box */
+    width: 250px;
+    height: 70px;
+    font-size: 14px;
+    background-color: #434343;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 8px;
+}
+
+div.footer_box span {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/*----------------sideBar content---------------*/
+
+/*----------------main-content---------------*/
+
+/*----------------header---------------*/
+
+.custom_Flex { /* header 부분의 Custom Flex 부분이다 중복 제거를 위함.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #474747;
+    transition: 0.5s;
+}
+
+
+.header_tap {
+    height: inherit;
+    width: 50px;
+    border-right: 2px solid #474747;
+    position: relative;
+}
+
+img#side_tap_bar {
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translate(-50%,-50%);
+}
+
+.header_title {
+    width: 100%;
+    height: inherit;
+}
+
+
+.header_lightDarkMode { /* light / Dark Mode를 위한 class*/
+    position: absolute;
+    top: 25;
+    right: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid black;
+    width: 60px;
+    height: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.header_circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 40px;
+}
+
+/*----------------header---------------*/
+
+
+/*---- 상태 관리 ----*/
+
+.visibleClass {
+    visibility: hidden;
+}
+
+/*-----------------*/

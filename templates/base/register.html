@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>YcnHub | 회원가입</title>
+        <meta name="description" content="YcnHub">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    </head>
+    <body>
+        <form class="register_form" , method='post' action="{% url 'register' %}">
+            {% csrf_token %}
+            {% include "base/error.html" %}
+            <h2 class="register_title">YcnHub / <span>회원 가입</span> </h2>
+
+            <div class="register_input_box">
+                <div class="register_imgBox">
+                    <img src="{% static 'assets/user.png' %}" alt="ID"/>
+                </div>
+                <input class="register_input" value="{{ form.username.value|default_if_none:'' }}" name="username" type="text" placeholder="아이디"/>
+            </div>
+            <div class="register_input_box">
+                <div class="register_imgBox">
+                    <img src="{% static 'assets/user.png' %}" alt="ID"/>
+                </div>
+                <input class="register_input" value="{{ form.nickname.value|default_if_none:'' }}" name="nickname" type="text" placeholder="별명"/>
+            </div>
+            <div class="register_input_box">
+                <div class="register_imgBox">
+                    <img src="{% static 'assets/lock.svg' %}" alt="pwd"/>
+                </div class="register_imgBox">
+                <input class="register_input" value="{{ form.password1.value|default_if_none:'' }}" name="password1" type="password" placeholder="비밀번호"/>
+            </div>
+            <div class="register_input_box">
+                <div class="register_imgBox">
+                    <img src="{% static 'assets/lock.svg' %}" alt="pwd"/>
+                </div class="register_imgBox">
+                <input class="register_input" value="{{ form.password2.value|default_if_none:'' }}" name="password2" type="password" placeholder="비밀번호 재확인"/>
+            </div>
+            <div class=register_helpbox>
+                <span id="forget_id"><a href="#"></a></span>
+                <span id="move_register"><a href="/login">로그인</a></span>
+            </div>
+            <button class="register_submit">회 원 가 입</button>
+        </form>
+
+        <script src="{% static 'js/auth.js' %}"></script>
+    </body>
+</html>
+

@@ -1,0 +1,59 @@
+# Python 관련
+*.pyc
+*.pyo
+__pycache__/
+*.swp
+
+# 환경 설정 관련
+*.env
+*.venv/
+*.idea/
+*.vscode/
+*.DS_Store
+.Python
+.python-version
+
+
+# 저장소
+저장공간/
+
+# 데이터베이스 파일
+db.sqlite3
+*.db
+
+# 미디어 파일 및 업로드된 파일
+media/
+uploads/
+
+# Django static files (운영 환경에서 수집된 파일)
+staticfiles/
+
+# 로컬 설정 파일
+local_settings.py
+
+# 테스트 결과 파일
+.coverage
+*.coverage
+htmlcov/
+
+# Virtual environment
+env/
+venv/
+
+# 기타 시스템 파일
+*.log
+*.pot
+*.pid
+*.seed
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# 빌드 파일
+dist/
+build/
+*.egg-info/
+*.eggs/
+*.wheel
+*.bak

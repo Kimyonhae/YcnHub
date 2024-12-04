@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>YcnHub | 로그인</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    </head>
+    <body>
+
+        <form class="login_form" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+
+            <h2 class="login_title">YcnHub / <span>로그인</span> </h2>
+            <div class="login_input_box">
+                <div class="login_imgBox">
+                    <img src="{% static 'assets/user.png' %}" alt="ID"/>
+                </div>
+                <input required class="login_input" name="username" type="text" placeholder="아이디" autocomplete="current-password"/>
+            </div>
+            <div class="login_input_box">
+                <div class="login_imgBox">
+                    <img src="{% static 'assets/lock.svg' %}" alt="pwd"/>
+                </div class="login_imgBox">
+                <input required class="login_input" name="password" type="password" placeholder="비밀번호" autocomplete="current-password"/>
+            </div>
+            {% for error in form.non_field_errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor%}
+            <input class="login_submit" type="submit" value="로 그 인"/>
+        </form>
+    </body>
+</html>

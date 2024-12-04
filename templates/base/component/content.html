@@ -1,0 +1,69 @@
+{% load static %}
+<div id="mainContent" class="storage_content">
+    {% if folderName %}
+    <form
+      class="fileUpload_form"
+      method="POST"
+      action="{% url 'file_upload' folderName=folderName %}" 
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <label id="file_label" for="file_upload">
+        <div class="upload_button">파일 업로드</div>
+      </label>
+      <input required type="file" name="file" id="file_upload" />
+    </form>
+    <div class="storage_filter">
+      <span>사용중인 공간</span>
+      <div class="filter_box">
+        <img src="{% static 'assets/filter.png' %}" alt="img" />
+        <span>정렬</span>
+      </div>
+    </div>
+    <div class="file_content">
+        {% for file in files %}
+            {% comment %} <a href="{% url 'file_view' folderId=selectedFolder fileId=file.id %}"> {% endcomment %}
+          <a href="/{{folderName}}/{{file}}">
+              <div class="file_container">
+                  <img src="{% static 'assets/file.svg' %}" alt="파일"/>
+                  <span>{{file}}</span>
+              </div>
+            </a>
+        {% endfor %} 
+    </div>
+    {% if selectedFile %}
+            <!--  파일이 선택된 경우의 Front display-->
+            <div class="dark_panel">
+              <div class="selectedFile_Box">
+                  <h4>{{selectedFile}}</h4>
+                  <div class="function_box" folderName="{{folderName}}" fileName="{{selectedFile}}">
+                      <form class="download_form" action="{% url 'download_file' folderName=folderName fileName=selectedFile %}" method="post" style="display: inline;">
+                          {% csrf_token %}
+                          <button type="submit" class="download_btn">다운로드</button>
+                      </form>
+                      <button class="delete_btn">삭제</button>
+                  </div>
+              </div>
+            </div>
+    {% endif %}
+    <script>
+      document.getElementById('file_upload').addEventListener('change', function() {
+        this.form.submit();
+      });
+    </script>
+    {% else %}
+    <h3>YcnHub</h3>
+    <p>
+      YcnHub은 가정용 하드디스크[저장공간]에 접근해서 사진 또는 다양한 파일들을 저장 하고 또한 가져오는 기능을 가지고 있습니다.
+    </p>
+    <h2>사용 안내</h2>
+    <ol>
+      <li><Strong>메뉴 바<img class="explain_img" src="{% static 'assets/dark-menu.svg' %}"></Strong> : 왼쪽상단의 탭을 누르면 폴더 생성이 가능합니다<li>
+      <li><Strong>폴더<img class="explain_img" src="{% static 'assets/folder.svg' %}"/></Strong> : 저장 공간에 폴더를 만드는 기능<li>
+      <li><Strong>폴더 수정 <img class="explain_img" src="{% static 'assets/edit.svg' %}"></Strong> : 폴더의 이름을 변경 할 수 있습니다<li>
+      <li><Strong>폴더 삭제 <img class="explain_img" src="{% static 'assets/delete.svg' %}"></Strong> : 폴더 자체를 삭제하고 내용물이 다 사라집니다 (주의)<li>
+      <li><Strong>파일 업로드</Strong> : 원하는 파일을 저장공간에 저장하는 기능<li>
+    </ol>
+    {% endif %}
+  </div>
+</div>
